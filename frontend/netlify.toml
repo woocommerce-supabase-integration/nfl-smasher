@@ -3,7 +3,7 @@
   publish = "build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 [context.production.environment]
   VITE_POCKETBASE_URL = "https://nfl-smasher.fly.dev"

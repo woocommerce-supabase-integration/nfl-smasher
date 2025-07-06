@@ -1,0 +1,22 @@
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  - port: 8090
+    onOpen: open-preview
+    description: PocketBase Admin UI
+  - port: 5173
+    onOpen: open-preview
+    description: SvelteKit Dev Server
+
+tasks:
+  - name: Start PocketBase
+    command: |
+      cd backend
+      ./pb serve --http 0.0.0.0:8090
+  - name: Setup Frontend
+    command: |
+      echo "Ready to setup frontend with SvelteKit + ShadCN Svelte"
+      echo "Run: pnpm create svelte@latest frontend"
+      echo "Then: cd frontend && pnpm install"
+      echo "Then: pnpm dlx shadcn-svelte@latest init"

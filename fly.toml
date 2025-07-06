@@ -1,0 +1,22 @@
+app = "nfl-smasher"
+primary_region = "ord"
+
+[build]
+  dockerfile = "backend/Dockerfile"
+
+[env]
+  POCKETBASE_ENV = "production"
+
+[http_service]
+  internal_port = 8090
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+
+[[mounts]]
+  source = "pb_data"
+  destination = "/pb/pb_data"
+  initial_size = "1gb"
+
+[deploy]
+  release_command = "echo 'PocketBase ready for deployment'"

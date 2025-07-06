@@ -2,7 +2,7 @@ app = "nfl-smasher"
 primary_region = "ord"
 
 [build]
-  dockerfile = "backend/Dockerfile"
+  dockerfile = "Dockerfile"
 
 [env]
   POCKETBASE_ENV = "production"
@@ -20,3 +20,11 @@ primary_region = "ord"
 
 [deploy]
   release_command = "echo 'PocketBase ready for deployment'"
+
+# Health check for better monitoring
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/api/health"

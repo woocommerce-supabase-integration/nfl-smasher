@@ -10,6 +10,7 @@ RUN apk add --no-cache curl unzip
 RUN curl -L -o pb.zip https://github.com/pocketbase/pocketbase/releases/download/v0.24.2/pocketbase_0.24.2_linux_amd64.zip \
     && unzip pb.zip \
     && rm pb.zip \
+    && mv pocketbase pb \
     && chmod +x ./pb
 
 # Create data directory

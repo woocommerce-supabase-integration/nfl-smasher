@@ -1,0 +1,18 @@
+[build]
+  command = "pnpm build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--version"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  VITE_POCKETBASE_URL = "https://nfl-smasher.fly.dev"
+
+[context.deploy-preview.environment]
+  VITE_POCKETBASE_URL = "https://nfl-smasher.fly.dev"
